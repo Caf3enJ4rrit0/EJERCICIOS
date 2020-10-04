@@ -14,6 +14,9 @@ es negativa, no se hará nada.
 números rojos.
 """
 
+
+# ARREGLAR!!!!!
+
 class Persona:
     def __init__(self, nombre, edad, dni):
         self.nombre = nombre
@@ -23,6 +26,7 @@ class Persona:
 
 
 class Cuenta(Persona):
+
     def __init__(self, nombre, edad, dni, titular, cantidad):
         super().__init__(nombre, edad, dni)
         self.titular = titular
