@@ -12,3 +12,6 @@ es negativa, no se hará nada.
 ● retirar(cantidad): se retira una cantidad a la cuenta. La cuenta puede estar en
 números rojos.
 """
+
+class Cuenta:
+    def __init__(self, titular,):
