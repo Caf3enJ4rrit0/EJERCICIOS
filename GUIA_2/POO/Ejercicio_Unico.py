@@ -35,3 +35,7 @@ Experimentación
 ● Crear un rectángulo utilizando los puntos A y B.
 ● Consultar la base, altura y área del rectángulo
 """
+
+
+
+"""pongo otro comentario entonces esta modificado"""
