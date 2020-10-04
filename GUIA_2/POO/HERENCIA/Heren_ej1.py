@@ -8,4 +8,4 @@ Construir los siguientes métodos para la clase:
 """
 
 
-class Persona:
+class Persona():
