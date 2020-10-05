@@ -23,19 +23,22 @@ class Persona:
         self.edad = edad
         self.dni = dni
 
-
-
-class Cuenta(Persona):
-
-    def __init__(self, nombre, edad, dni, titular, cantidad):
+class Titular(Persona):
+    def __init__(self, nombre, edad, dni, mail):
         super().__init__(nombre, edad, dni)
-        self.titular = titular
-        self. cantidad = cantidad
+        self.mail = mail
+
+class Cuenta(Titular):
+
+    def __init__(self, nombre, edad, dni, mail, titular, cantidad):
+        super().__init__(nombre, edad, dni, mail)
+        self.titular = titular                      #clase llamada Cuenta que tendrá los siguientes atributos: titular (que es una persona) NO ME SALE
+        self.cantidad = cantidad
 
 
     def mostrar(self):
-        print(self.titular)
-        print(self.cantidad)
+        print(f"DATOS PERSONALES: \nTITULAR: {self.nombre} \nEDAD: {self.edad} \nDNI: {self.dni} \nMAIL: {self.mail}")
+        print(f"SALDO: ${self.cantidad}")
 
     def ingresar(self):
         ingresa = int(input("Desea ingresar dinero a la cuenta? S=1/N=0: "))
@@ -71,7 +74,7 @@ class Cuenta(Persona):
             print("error")
 
 
-belen = Cuenta("Belen", 32, 33589676, "hola", 200)
+belen = Cuenta("Belen S.", 32, 33589676, "mail@mail.com", "hola", 20000)
 
 
 belen.mostrar()
