@@ -32,12 +32,12 @@ class Cuenta:
     def __init__(self, titular_nombre, titular_edad, titular_dni, cantidad = 0):
         self.tt_nom = titular_nombre
         self.tt_edad = titular_edad
-        self.tt_dni = titular_dni
+        self.__tt_dni = titular_dni
         self.__cantidad = cantidad
 
 
     def mostrar(self):
-        print(f"DATOS TITULAR: \nNOMBRE COMPLETO: {self.tt_nom}, \nEDAD: {self.tt_edad}, \nDNI:{self.tt_dni}")
+        print(f"DATOS TITULAR: \nNOMBRE COMPLETO: {self.tt_nom}, \nEDAD: {self.tt_edad}, \nDNI:{self.__tt_dni}")
         print(f"SALDO: ${self.__cantidad}")
 
     def ingresar(self, monto):
