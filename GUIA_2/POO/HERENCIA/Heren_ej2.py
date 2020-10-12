@@ -15,8 +15,6 @@ números rojos.
 """
 
 
-# ARREGLAR!!!!!
-
 class Persona:
     def __init__(self, nombre, edad, dni):
         self.nombre = nombre
