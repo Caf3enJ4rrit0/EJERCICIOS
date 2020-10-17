@@ -15,8 +15,7 @@ bonificación de la cuenta.
 ● Pensar los métodos heredados de la clase madre que hay que reescribir.
 """
 
-
-class Persona:
+"""class Persona:
     def __init__(self, nombre, edad, dni):
         self.nombre = nombre
         self.edad = edad
@@ -106,14 +105,103 @@ alguien = Persona(t_nom, t_edad, t_dni)                                         
 cliente = CuentaJoven(alguien.nombre, alguien.edad, alguien.dni, 2000, 25)                  #objeto de Cuenta
 
 cliente.mostrar()
-print()
+print()"""
 
 """cantidad_d = float(input("ingresar el monto a depositar: "))
 humano.ingresar(cantidad_d)
 print()
 
 humano.mostrar()
-print()"""
+print()""""""
 
 cantidad_r = float(input("ingresar el monto a retirar: "))
-cliente.retirar(cantidad_r)
+cliente.retirar(cantidad_r)"""
+
+class Persona:
+    def __init__(self, nombre=" ", edad=" ", dni=" "):
+        self.nombre = nombre
+        self.edad = edad
+        self.dni = dni
+
+    def muestra(self):
+        return f"Nombre: {self.nombre}, Edad: {self.edad}, DNI: {self.dni}"
+
+    def esMayorDeEdad(self):
+        if int(self.edad) >= 18:
+            print(f"{self.nombre} es mayor de edad")
+            return True
+
+class Cuenta:
+    def __init__(self, titular=Persona(), cantidad = 0):
+        self.titular = titular
+        self.cantidad = cantidad
+
+    def mostrar(self):
+        print(f"DATOS TITULAR: \n{self.titular.muestra()}")
+        print(f"SALDO: ${self.cantidad}")
+
+    def ingresar(self):
+        valor_i = float(input("Ingrese el valor a depositar: "))
+        if valor_i != 0 and valor_i > 0:
+            self.cantidad += valor_i
+        elif valor_i == 0:
+            print("no ingreso un monto valido")
+        elif valor_i < 0:
+            self.cantidad = 0
+
+    def retirar(self):
+        valor_r = float(input("Ingrese el valor a retirar: "))
+        if valor_r != 0.0:
+            self.cantidad -= valor_r
+            if self.cantidad < 0.0:
+                print("la cuenta esta en numeros rojos")
+                print(f"Su saldo: {self.cantidad}")
+        elif valor_r == 0:
+            print("no ingreso un monto invalido")
+
+
+class CuentaJoven(Cuenta):
+    def __init__(self, titular, cantidad, bonificacion = 0):
+        super().__init__(titular, cantidad)
+        self.bonificacion = bonificacion
+
+    def esTitularValido(self):
+        if self.titular.esMayorDeEdad() and self.titular.edad <= 25:
+            return True
+        else:
+            return False
+
+    def mostrar(self):
+        validez = self.esTitularValido()
+        if validez:
+            print(f"DATOS TITULAR - Cuenta Joven - : \n{self.titular.muestra()}")
+            print(f"SALDO: ${self.cantidad}")
+            print(f"BONITICACION: {self.bonificacion}%")
+        else:
+            print("Esta cuenta no cumple los requisitos")
+
+    def retirar(self):
+        validez = self.esTitularValido()
+        if validez:
+            print("Puede retirar dinero.")
+            retiro = float(input("Retire dinero o presione 0 para salir: "))
+            if retiro != 0.0:
+                self.cantidad -= retiro
+            if self.cantidad < 0.0:
+                print("la cuenta esta en numeros rojos")
+                print(f"Su saldo: {self.cantidad}")
+            elif retiro == 0:
+                print("no ingreso un monto invalido")
+
+
+
+belen = Persona("Belen ", 22, 11333222)
+cliente = CuentaJoven(belen, 2000, 50)
+
+
+cliente.mostrar()
+cliente.ingresar()
+cliente.mostrar()
+print()
+cliente.retirar()
+cliente.mostrar()

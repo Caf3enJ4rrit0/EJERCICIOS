@@ -14,8 +14,7 @@ es negativa, no se hará nada.
 números rojos.
 """
 
-
-class Persona:
+"""class Persona:
     def __init__(self, nombre, edad, dni):
         self.nombre = nombre
         self.edad = edad
@@ -23,8 +22,6 @@ class Persona:
 
     def muestra(self):
         print(f"Nombre: {self.nombre}, Edad: {self.edad}, DNI: {self.dni}")
-
-
 
 class Cuenta:
     def __init__(self, titular_nombre, titular_edad, titular_dni, cantidad = 0):
@@ -53,7 +50,7 @@ class Cuenta:
                 print("la cuenta esta en numeros rojos")
                 print(f"Su saldo: {self.__cantidad}")
         elif valor == 0:
-            print("no ingreso un monto invalido")
+            print("no ingreso un monto invalido")"""
 
 """    def ingresar(self):
         ingresa = input("Desea ingresar dinero a la cuenta? s/n: ")
@@ -87,7 +84,7 @@ class Cuenta:
         elif ingresa != "s" and ingresa != "n":
             print("error")"""
 
-t_nom = input("ingrese su nombre completo: ")
+"""t_nom = input("ingrese su nombre completo: ")
 t_edad = int(input("ingrese su edad: "))
 t_dni = int(input("ingrese su dni: "))
 
@@ -106,40 +103,44 @@ p.mostrar()
 print()
 
 cantidad_r = float(input("ingresar el monto a retirar: "))
-p.retirar(cantidad_r)
+p.retirar(cantidad_r)"""
 
 ###########################################################################################################
 
-"""class Persona:
-    def __init__(self, nombre= " ", edad= " ", dni= " "):
+class Persona:
+    def __init__(self, nombre=" ", edad=" ", dni=" "):
         self.nombre = nombre
         self.edad = edad
         self.dni = dni
 
     def muestra(self):
-        print(f"Nombre: {self.nombre}, Edad: {self.edad}, DNI: {self.dni}")
+        return f"Nombre: {self.nombre}, Edad: {self.edad}, DNI: {self.dni}"
 
-
+    def esMayorDeEdad(self):
+        if int(self.edad) >= 18:
+            print(f"{self.nombre} es mayor de edad")
+            return True
 
 class Cuenta:
     def __init__(self, titular=Persona(), cantidad = 0):
         self.titular = titular
         self.__cantidad = cantidad
 
-
     def mostrar(self):
-        print(f"DATOS TITULAR: {self.titular.muestra() }")
+        print(f"DATOS TITULAR: \n{self.titular.muestra()}")
         print(f"SALDO: ${self.__cantidad}")
 
-    def ingresar(self, valor_i):
-        if valor_i != 0 and valor_i >= 0:
+    def ingresar(self):
+        valor_i = float(input("Ingrese el valor a depositar: "))
+        if valor_i != 0 and valor_i > 0:
             self.__cantidad += valor_i
         elif valor_i == 0:
             print("no ingreso un monto valido")
         elif valor_i < 0:
             self.__cantidad = 0
 
-    def retirar(self, valor_r):
+    def retirar(self):
+        valor_r = float(input("Ingrese el valor a retirar: "))
         if valor_r != 0:
             self.__cantidad -= valor_r
             if self.__cantidad < 0:
@@ -148,6 +149,14 @@ class Cuenta:
         elif valor_r == 0:
             print("no ingreso un monto invalido")
 
-belen = Persona("Belen Seijas", 32, 32882068)
+belen = Persona("Belen ", 32, 11333222)
 
-cliente = cuenta(belen, 2000)"""
+cliente = Cuenta(belen, 2000)
+
+
+cliente.mostrar()
+cliente.ingresar()
+cliente.mostrar()
+cliente.retirar()
+cliente.mostrar()
+

@@ -19,11 +19,13 @@ class Persona:
         print(f"{self.nombre} \n{self.edad} \n{self.dni}")
 
     def esMayorDeEdad(self):
-
-        if self.edad <= 18:
+        """if self.edad <= 18:
             print(bool(self.edad == 0))
         elif self.edad >= 18:
-            print(bool(self.edad))
+            print(bool(self.edad))"""
+        if int(self.edad) >= 18:
+            print(f"{self.nombre} es mayor de edad")
+            return True
 
 
 
