@@ -87,7 +87,6 @@ class Cuenta:
         elif ingresa != "s" and ingresa != "n":
             print("error")"""
 
-
 t_nom = input("ingrese su nombre completo: ")
 t_edad = int(input("ingrese su edad: "))
 t_dni = int(input("ingrese su dni: "))
@@ -109,9 +108,46 @@ print()
 cantidad_r = float(input("ingresar el monto a retirar: "))
 p.retirar(cantidad_r)
 
+###########################################################################################################
+
+"""class Persona:
+    def __init__(self, nombre= " ", edad= " ", dni= " "):
+        self.nombre = nombre
+        self.edad = edad
+        self.dni = dni
+
+    def muestra(self):
+        print(f"Nombre: {self.nombre}, Edad: {self.edad}, DNI: {self.dni}")
 
 
 
+class Cuenta:
+    def __init__(self, titular=Persona(), cantidad = 0):
+        self.titular = titular
+        self.__cantidad = cantidad
 
 
+    def mostrar(self):
+        print(f"DATOS TITULAR: {self.titular.muestra() }")
+        print(f"SALDO: ${self.__cantidad}")
 
+    def ingresar(self, valor_i):
+        if valor_i != 0 and valor_i >= 0:
+            self.__cantidad += valor_i
+        elif valor_i == 0:
+            print("no ingreso un monto valido")
+        elif valor_i < 0:
+            self.__cantidad = 0
+
+    def retirar(self, valor_r):
+        if valor_r != 0:
+            self.__cantidad -= valor_r
+            if self.__cantidad < 0:
+                print("la cuenta esta en numeros rojos")
+                print(f"Su saldo: {self.__cantidad}")
+        elif valor_r == 0:
+            print("no ingreso un monto invalido")
+
+belen = Persona("Belen Seijas", 32, 32882068)
+
+cliente = cuenta(belen, 2000)"""
